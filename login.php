@@ -8,6 +8,7 @@ include "connection.php";
 //check jika sudah ada user yang login arahkan ke halaman admin
 if (isset($_SESSION['username'])) {
   header("location:admin.php");
+  exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -117,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //check apakah username dan password yang di POST sama dengan data dummy
         if ($_POST['user'] == $username and $_POST['pass'] == $password) {
           echo "Username dan Password Benar";
-          header("Location: index.php");
+          header("Location:index.php");
           exit();
         } else {
           echo "Username dan Password Salah";
